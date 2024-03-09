@@ -22,5 +22,5 @@ console.log(anotherstring.trim())/*
 Will it ignore extra whitespaces between two words in the string?
 No, the trim() method in JavaScript only removes leading and trailing whitespaces from a string, not whitespaces between words.
 */
-const rollno=new String("293598 23006481 23006465")
-console.log(rollno.split())
+const str1="Hanzla-Huzaifa-Khuzaima"
+console.log(str1.split("-"));
