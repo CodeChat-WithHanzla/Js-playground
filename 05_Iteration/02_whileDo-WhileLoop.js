@@ -12,7 +12,7 @@ while (arr<myArray.length) {
 }
 
 do {
-    //First execute the blockn of code then check the condition
+    //First execute the block of code then check the condition
     console.log(`Value at ${arr} is ${myArray[arr]}`);
     arr=arr+1 
 } while (arr<0);
