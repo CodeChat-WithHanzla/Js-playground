@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+    <title>DOM learning</title>
+</head>
+<body class="bg-black">
+    <div>
+       <h1 id="title"  class="heading">DOM learning <span style="display: none;">Hanzla</span></h1>
+       <p>Lorem ipsum dolor sit.</p>
+       <h2>First H2</h2>
+       <h2>Second H2</h2>
+       <input type="password" name="" id="">
+    <ul>
+       <li class="list-items">one</li>
+       <li class="list-items">two</li>
+       <li class="list-items">three</li>
+       <li class="list-items">forth</li>
+    </ul>
+    </div>
+</body>
+</html>
+
+
+<!-- 1_Exercise with DOM in browser`s console environment
+    document.getElementById("title")
+    <h1 id=​"title" class=​"heading">​"DOM learning "<span style=​"display:​ none;​">​Hanzla​</span>​</h1>​
+    document.getElementById("title").id
+    'title'
+    document.getElementById("title").class
+    undefined
+    document.getElementById("title").className
+   'heading'
+    document.getElementById("title").getAttribute("id")
+   'title'
+    document.getElementById("title").getAttribute("class")
+   'heading'
+    document.getElementById("title").setAttribute("class","Hanzla")
+    undefined
+    document.getElementById("title").getAttribute("class")
+    'Hanzla'
+    document.getElementById("title").setAttribute("class","title Hanzla")
+    undefined
+    document.getElementById("title").getAttribute("class")
+    'title Hanzla'     -->
+
+
+    <!-- Second Exercise 
+    const title=document.getElementById("title")
+    undefined
+    title
+    <h1 id=​"title" class=​"title Hanzla">​"DOM learning "<span style=​"display:​ none;​">​Hanzla​</span>​</h1>​
+    title.style.color="blue"
+   'blue'
+    title.style.backgroundColor="hotpink"
+   'hotpink'
+    title.style.padding="10px"
+   '10px'
+    title.style.borderRadius="20px"
+   '20px'
+     -->
+
+
+     <!-- Third Exercise
+     <h1 id=​"title" class=​"title Hanzla" style=​"color:​ blue;​ background-color:​ hotpink;​ padding:​ 10px;​ border-radius:​ 30px;​">​…​</h1>​"DOM learning "<span style=​"display:​ none;​">​Hanzla​</span>​</h1>​
+     title.textContent
+     'DOM learning Hanzla'
+     title.innerHTML
+     'DOM learning <span style="display: none;">Hanzla</span>'
+     title.innerText
+     'DOM learning' -->
+
+
+     <!-- Forth Exercise-getElementsByClassName
+     const classy=document.getElementsByClassName('heading')
+     undefined
+     classy
+     HTMLCollection [h1#title.heading, title: h1#title.heading]0: h1#title.headingtitle: h1#title.headinglength: 1[[Prototype]]: HTMLCollection
+     const clay=classy[0]
+     undefined
+     clay
+     <h1 id=​"title" class=​"heading">​"DOM learning "<span style=​"display:​ none;​">​Hanzla​</span>​</h1>​
+     clay.style.backgroundColor="purple"
+    'purple' -->
+
+
+    <!-- Fifth Exercise-querySelector 
+    document.querySelector('ul')
+    <ul>​…​</ul>​
+    const ul=document.querySelector('ul')
+    undefined
+    const li=ul.querySelector("li")
+    undefined
+    li.style.backgroundColor="hotpink"
+    'hotpink' -->
+
+   
+    <!-- Sixth Exercise-querySelectorAll 
+    document.querySelectorAll("li")
+    NodeList(3) [li, li, li]
+    const li =document.querySelectorAll("li")
+    undefined
+    li
+    NodeList(3) [li, li, li]
+    li.forEach((l)=>{
+        l.style.backgroundColor="hotpink"
+    }) -->
+
+
+    <!-- Seventh Exercise-getElementsByClassName
+    document.getElementsByClassName("list-items")
+    HTMLCollection(4) [li.list-items, li.list-items, li.list-items, li.list-items]
+    const list=document.getElementsByClassName("list-items")
+    undefined
+    const createdArray=Array.from(list)
+    undefined
+    createdArray
+    (4) [li.list-items, li.list-items, li.list-items, li.list-items]
+    createdArray.forEach((val)=>{})
+    undefined
+    createdArray.forEach((val)=>{
+        console.log(val)
+    })
+    <li class=​"list-items">​…​</li>​
+    <li class=​"list-items">​…​</li>​
+    <li class=​"list-items">​…​</li>​
+    <li class=​"list-items">​…​</li>​
+    undefined
+    createdArray.forEach((val)=>{
+        val.style.backgroundColor="Hotpink"
+    })
+    undefined -->
+
+    <!-- Note :- "For more practice open up wikipedia and make some changes" -->
