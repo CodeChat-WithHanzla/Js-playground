@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body { background-color: #212121;
+    color:#fff;
+    }
+    </style>
+</head>
+<body>
+    <ul class="languages">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    // const Lang=(lanName)=>{
+    // const li=document.createElement('li')
+    // li.innerText=lanName
+    // document.querySelector("ul").appendChild(li)
+    // }
+    // Lang("TypeScript")
+    
+    // This is the most optimize way   
+    const Lang1=(lanName)=>{
+        const li=document.createElement('li')
+        li.appendChild(document.createTextNode(`${lanName}`))
+        document.querySelector(".languages").appendChild(li)
+       }
+       Lang1("Python")
+       Lang1("JAVA")
+       Lang1("C++")
+       //console.log(document.querySelector('ul'));
+    //    Editing 
+       const secondLi=document.querySelector("li:nth-child(2)")
+    //    console.log(secondLi);
+    //    secondLi.innerHTML="Golang"
+    //    secondLi.outerHTML="<h1>Golang</h1>"
+    //    secondLi.appendChild(document.createTextNode("  & Golang"))
+    //    secondLi.replaceWith("Golang")
+          const newli=document.createElement('li')
+          newli.textContent="Rust"
+          secondLi.replaceWith(newli)
+          
+          //removing 
+          //document.querySelector('li:last-child').remove()
+</script>
+</html>
