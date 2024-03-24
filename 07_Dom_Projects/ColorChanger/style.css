@@ -1,0 +1,34 @@
+.header{
+    width: 100vw;
+    height: 20px;
+}
+ .text{
+   font-size: 14px;
+ }
+ #heading{
+ font-weight: bold;
+}
+ .container{
+  width:100vw;
+  height:100vh;
+  display:flex;
+  align-items: center;
+  gap: 30px;
+}
+.box{
+  width:100px;
+  aspect-ratio:1;
+  border:1px solid #212121;
+}
+#hotpink{
+  background-color: hotpink;
+}
+#darkblue{
+  background-color: darkblue;
+}
+#seagreen{
+  background-color: seagreen;
+}
+#indianred{
+  background-color: indianred;
+}
