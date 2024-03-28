@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        /* ul{
+            border: 2px solid hotpink;
+        } */
+    </style>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+  <ul id="images">
+    <li><img width="200px" src="https://i.pinimg.com/564x/31/ea/6a/31ea6a00dc16a2c73f7f28cacbdc7db0.jpg" alt="cars" id="cars"></li>
+    <li><img width="200px" src="https://i.pinimg.com/564x/62/37/8e/62378e9ac58723ac12255ee5c95df012.jpg" alt="partner" id="partner"></li>
+    <li><img  width="200px" src="https://i.pinimg.com/236x/1e/7d/f6/1e7df63a996b8dcc36a929f25fdd323e.jpg" alt="study" id="study"></li>
+    <li><img width="200px" src="https://i.pinimg.com/564x/c6/91/aa/c691aaa51f87d1f817d50472b14a267c.jpg" alt="horses" id="horses"></li>
+    <li><img width="200px" src="https://i.pinimg.com/564x/b7/3c/43/b73c4381c90e9f387b022a75bb4dd192.jpg" alt="money" id="money"></li>
+    <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+  </ul>     
+</body>
+<script>
+//    document.getElementById('money').onclick=()=>{
+//     alert('Money clicked')
+//    }
+      
+
+//     document.getElementById('money').addEventListener('click',()=>{
+//         alert('Money clicked again')
+// })
+
+
+//        document.getElementById('money').addEventListener('click',(e)=>{
+//        console.log(e);
+//     // type, timestamp, defaultPrevented
+//     // target, toElement, srcElement, currentTarget,
+//     // clientX, clientY, screenX, screenY
+//     // altkey, ctrlkey, shiftkey, keyCode
+//  },false)// false is default and it`s for event bubbling
+
+//  In capturing model, the event will be handled by the div first (click event handlers in the div will fire first), then in the ul , then at the last in the target element, li . In the bubbling model, the opposite will happen: the event will be first handled by the li , then by the ul , and at last by the div element.
+
+
+    // document.getElementById('images').addEventListener('click',(e)=>{
+    // //console.log('Outer Images ul');
+    // },false)
+    // document.getElementById('money').addEventListener('click',(e)=>{
+    // //console.log('Inner Li');
+    // //e.stopPropagation()
+    // },false)
+    // // Bubbling Mode => Inside to Outside
+
+
+    // document.getElementById('images').addEventListener('click',(e)=>{
+    // console.log('Outer Images ul');
+    // //e.stopPropagation()
+    // },true)
+    // document.getElementById('money').addEventListener('click',(e)=>{
+    // console.log('Inner Li');
+    // },true)
+    // Capturing Mode => Outside to Inside
+
+
+    document.getElementById('google').addEventListener('click',function(e){
+    //console.log("Google");
+    e.preventDefault()
+    
+    })
+
+
+    // document.querySelector('#images').addEventListener('click',(e)=>{
+    //     console.log(e.target.parentNode);
+    //     let removeIt=e.target.parentNode
+    //     removeIt.remove()
+    // },false)
+
+    
+    document.querySelector('#images').addEventListener('click',(e)=>{
+        console.log(e.target.id);
+        if(e.target.tagName === 'IMG'){ 
+        console.log(e.target.tagName);  
+        let removeIt=e.target.parentNode
+        removeIt.remove()
+        }
+    },false)
+
+
+    
+   
+
+</script>
+</html>
