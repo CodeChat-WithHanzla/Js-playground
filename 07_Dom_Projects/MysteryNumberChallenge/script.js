@@ -30,10 +30,10 @@ function validateGuess(guess) {
     }
     else{
         previousGuess.push(guess)
-        if(numGuess===5){
-            displayGuess(guess)
-            displayMessage(`Game over ... Random Number was ${randomNumber}`)
-            endGame()
+        if (guess === randomNumber) {
+            displayGuess(guess);
+            displayMessage(`You guessed it right`);
+            endGame();
         }
         else{
             displayGuess(guess)
@@ -43,22 +43,23 @@ function validateGuess(guess) {
     }
 }
 function checkGuess(guess){
-    if (guess===randomNumber) {
-        displayMessage(`You guessed it right`)
-        endGame()
-    }
-    else if(guess<randomNumber){
+    
+     if(guess<randomNumber){
         displayMessage(`Number is Too Low`)
     }
     else if(guess>randomNumber){
         displayMessage(`Number is Too High`)
+    }
+    if (numGuess === 4) {
+        displayMessage(`Game over ... Random Number was ${randomNumber}`);
+        endGame();
     }
 }
 function displayGuess(guess){
     userInput.value=''
     guessSlot.innerHTML+=`${guess}  `
     numGuess++
-    Remaining.innerHTML=`Remaining: ${5-numGuess}`
+    Remaining.innerHTML=`Remaining: ${4-numGuess}`
 }
 function displayMessage(message){
     lowHigh.innerHTML=`<h2>${message}</h2>`
@@ -81,7 +82,7 @@ function startGame() {
     previousGuess=[]
     guessSlot.innerHTML=`Previous Guesses : `
     numGuess=1
-    Remaining.innerHTML=`Remaining: ${5-numGuess}`
+    Remaining.innerHTML=`Remaining: ${4-numGuess}`
     userInput.removeAttribute('disabled')
     startOver.removeChild(p)
     playGame=true    
