@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color Changer </title>
+    <style>
+        body{
+            background-color: #212121;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <p>Random Color Changer Project</p>
+   <button type="button" class="start">Start</button> 
+   <button type="button" class="end">End</button>
+</body>
+<script>
+    const body=document.querySelector('body')
+    const start=document.querySelector('.start')
+    const end=document.querySelector('.end')
+    let colorOriginal="#212121"
+    // Initailizing the values through randomColorChanger()
+    const randomColorChanger=()=> {
+    let color='#'
+    let hex='0123456789ABCDEF'
+    let randomColor=Math.floor(Math.random()*16)
+    for (let i = 0; i < 6; i++) {
+    color+=hex[randomColor]    
+    }
+    return color;   
+}
+    let intervalId;// Interval Id so we can use clearInterval()
+    //Start Changing Color
+    const startChangingColor=()=>{
+    const changebgc=function(){
+        body.style.backgroundColor=randomColorChanger()
+     }
+     if (!intervalId) {
+        intervalId=setInterval(changebgc,2000)
+     }
+    }  
+    const endChangingColor=()=>{
+       clearInterval(intervalId) 
+       intervalId=null
+       body.style.backgroundColor=colorOriginal
+
+    }  
+
+
+    start.addEventListener('click',startChangingColor)
+    end.addEventListener('click',endChangingColor)
+</script>
+</html>
+
