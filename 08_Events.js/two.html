@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    <style>
+        body{
+            background-color: #212121;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <p>Coding and Programming are different things in computer sciences</p>
+    <button type="button" class="Start">Start</button>
+    <button type="button" class="End">End</button>
+</body>
+<script>
+    const start=document.querySelector('.Start')
+    const End=document.querySelector('.End')
+    const P=document.querySelector('p')  
+    let originalText=P.innerHTML
+    let timeoutId
+    const changeText=()=>{
+        P.innerHTML="Join us To Code better";
+    }
+    const changeMe=()=>{
+        timeoutId=setTimeout(changeText,2000) 
+    }
+    start.addEventListener('click',()=>{
+        changeMe()
+        console.log("setTimeout Started!");
+    })
+
+    End.addEventListener('click',()=>{
+        clearTimeout(timeoutId)
+        P.innerHTML = originalText;
+        console.log("clearTimeout Ended!");
+    })
+</script>
+</html>
