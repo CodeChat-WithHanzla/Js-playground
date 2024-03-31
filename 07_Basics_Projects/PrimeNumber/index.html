@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #212121;
+            color:aliceblue;
+        }
+    </style>
+</head>
+<body>
+    
+    <label for="text">Enter The Number: </label>
+        <input type="text" id="text">
+        <input type="button" value="Submit The Number" id="submit">
+        <p class="result"></p>
+
+
+</body>
+<script>
+    const input=document.querySelector('#text')
+    const submit=document.querySelector('#submit')
+    const result=document.querySelector('.result')
+    submit.addEventListener('click',(e)=>{
+    //e.preventDefault()
+    const element=parseInt(input.value)
+    //console.log(element);
+    if (isPrime(element)) {
+       result.textContent= `${element} is Prime Number!`;
+    }
+    else{
+        result.textContent=`${element} isn't a  Prime Number!`;
+    }
+    input.value=''
+    })
+    const isPrime=(element)=>{
+        if(element<=1) return false
+        if(element===2) return true
+        if(element%2===0) return false
+        for(let i=3;i<=Math.sqrt(element);i+=2){
+            if(element%i===0){
+                return false
+             }  
+             // After return statement below code will not execute     
+               }
+               
+        
+            return true
+        
+    }
+    
+</script>
+    
+</html>
