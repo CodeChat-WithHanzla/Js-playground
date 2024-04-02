@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #212121;
+            color: aliceblue;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+   <img src="" alt=""> 
+   <p class="bio"></p>
+</body>
+<script>
+    let img,bio;
+    const image=document.querySelector('img')
+    const biography=document.querySelector('.bio')
+    async function dataFetching(params) {
+    try {
+    const response=await fetch('https://api.github.com/users/CodeChat-WithHanzla')
+    const data=await response.json()
+     img=data.avatar_url;
+     bio=data.bio;
+     image.setAttribute('src',img)
+     biography.innerHTML=bio
+     console.log(img);
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+dataFetching()
+//const image=document.querySelector('img')
+</script>
+</html>
+
+
+
+
