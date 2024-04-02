@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #212121;
+            color: aliceblue;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #img{
+            width: 200px;
+            border-radius: 10px;
+        }
+
+        p{
+            margin-top: 10px;
+            line-height: 30px;
+            padding: 5px 5px 5px 5px;
+        }
+        button[type='button']{
+            border-radius: 3px;
+            border: none;
+            padding: 10px;  
+            margin-top: 150px;
+        }
+        button[type='button']:hover{
+            background-color: #43419cea;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button type="button" id="start">Start</button>
+        <img src="" alt="" id="img">
+        <p class="bioStatus"></p>
+    </div>
+
+    <script>
+        const start = document.querySelector('#start');
+        const imgsrc = document.querySelector('#img');
+        const bioStatus = document.querySelector('.bioStatus');
+        let img, bio;
+
+        const reqUrl = 'https://api.github.com/users/CodeChat-WithHanzla';
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', reqUrl);
+        xhr.setRequestHeader('Authorization', 'token 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');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) // Done State,meaning that operation is complete
+             {
+                if (xhr.status === 200) //Requested was found and successful
+                 {
+                    const data = JSON.parse(xhr.responseText);
+                    console.log(data);
+                    img = data.avatar_url;
+                    bio = data.bio;
+                    
+                } else {
+                    console.error('Error fetching data:', xhr.status);
+                }
+            }
+        };
+   
+        xhr.send();
+
+        start.addEventListener('click', () => {
+                    start.style.display = 'none';
+                    imgsrc.setAttribute('src', img);
+                    const bioHandling=function(){
+                        bioStatus.innerHTML = bio;
+                    }
+                    setTimeout(bioHandling,250)        
+        });
+        // Notes : By setting the onreadystatechange property to a function, you can define what should happen at each stage of the XHR lifecycle. Typically, you would check the readyState within this function and perform different actions based on its value. For example, you might want to process the response data when readyState is 4 (DONE).
+    </script>
+</body>
+</html>
