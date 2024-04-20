@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind()</title>
+</head>
+<body>
+    <button type="button">Subscribe</button>
+</body>
+<script>
+    const button = document.querySelector('button');
+    const obj = {
+      name: 'Hanzla',
+      handleClick: function() {
+      console.log(`Hlw, My Name Is ${this.name}`);
+    }};
+button.addEventListener('click', obj.handleClick.bind(obj));
+
+  const messageDisplay={
+    message:'How are you?',
+    dispaly: function(){
+        console.log(this.message);
+    }
+  }
+  setTimeout(messageDisplay.dispaly.bind(messageDisplay),2000)  
+
+</script>
+</html>
