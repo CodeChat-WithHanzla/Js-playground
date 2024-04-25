@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Closures-Practical Example</title>
+  <style>
+    body{
+        background-color: #313131;
+        color: aliceblue;
+    }
+    .buttons{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+  </style>
+</head>
+
+<body>
+<p>Hello How are you ?</p>
+<div class="buttons">
+  <button type="button" id="size-20">Size 20px</button>
+  <button type="button"id="size-40">Size 40px</button>
+  <button type="button" id="size-60">Size 60px</button>
+</div>
+</body>
+<script>
+  const size20=SizeMaker(20)
+  const size40=SizeMaker(40)
+  const size60=SizeMaker(60)
+  function SizeMaker(size){
+    return function(){
+      document.querySelector('body').style.fontSize=size+'px'
+    }
+  }
+  document.querySelector('#size-20').onclick=size20
+    document.querySelector('#size-40').onclick=size40
+    document.querySelector('#size-60').onclick=size60
+  
+</script>
+
+</html>
